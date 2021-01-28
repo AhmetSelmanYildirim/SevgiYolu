@@ -16,7 +16,7 @@ export const strings = new LocalizedStrings({
     shareImage: 'Share Image',
     shareApp: 'Share App',
     givePoint: 'Give Points!',
-    bottomText : 'All right reserved of Road Map to Happiness App',
+    bottomText : 'All right reserved of Love Road',
     shareTitle: 'The road map to happiness',
     shareMessage: 'Download the application and create your love\'s road map.',
     errorMessage: 'Please fill every field.',

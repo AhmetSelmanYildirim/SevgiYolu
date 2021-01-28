@@ -21,6 +21,18 @@ export default class Form extends Component {
     herPhoto: '',
   } 
 
+  backAction = () => {
+    Alert.alert(strings.quitMessage1, strings.quitMessage2, [
+      {
+        text: strings.quitMessageIgnore,
+        onPress: () => null,
+        style: "cancel"
+      },
+      { text: strings.quitMessageVerify, onPress: () => BackHandler.exitApp() }
+    ]);
+    return true;
+  };
+
   componentDidMount() {
     this.setState({
       yourLocation: strings.location,
@@ -34,17 +46,7 @@ export default class Form extends Component {
 
   }
 
-  backAction = () => {
-    Alert.alert(strings.quitMessage1, strings.quitMessage2, [
-      {
-        text: strings.quitMessageIgnore,
-        onPress: () => null,
-        style: "cancel"
-      },
-      { text: strings.quitMessageVerify, onPress: () => BackHandler.exitApp() }
-    ]);
-    return true;
-  };
+
 
   renderSection(text, onPress, img) {                                                                           
     return (
