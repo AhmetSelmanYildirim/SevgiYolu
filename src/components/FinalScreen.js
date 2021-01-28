@@ -22,7 +22,7 @@ export default class FinalScreen extends Component {
     const shareOptionsAppShare = {
       title: strings.shareTitle,
       message: strings.shareMassage, 
-      url:'Uygulama tamamlandiginda paylasma ozelligi aktif olacaktir.',
+      url:'https://drive.google.com/drive/u/0/folders/1EWZ8aA33BJt-xQ-6Cq2gYRiOOgUs9wSc',
     };
 
 

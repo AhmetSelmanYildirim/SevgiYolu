@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ImageBackground, Dimensions, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, ImageBackground, Dimensions, Image, StyleSheet, TouchableOpacity, BackHandler, Alert } from 'react-native';
 import Button from '../common/Button';
 import { strings } from '../Lang/Strings';
 import RNGooglePlaces from 'react-native-google-places';
@@ -26,7 +26,25 @@ export default class Form extends Component {
       yourLocation: strings.location,
       herLocation: strings.herLocation,
     });
+
+    this.backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      this.backAction
+    );
+
   }
+
+  backAction = () => {
+    Alert.alert(strings.quitMessage1, strings.quitMessage2, [
+      {
+        text: strings.quitMessageIgnore,
+        onPress: () => null,
+        style: "cancel"
+      },
+      { text: strings.quitMessageVerify, onPress: () => BackHandler.exitApp() }
+    ]);
+    return true;
+  };
 
   renderSection(text, onPress, img) {                                                                           
     return (
@@ -195,8 +213,8 @@ export default class Form extends Component {
         </View>
 
         <View>   
-        {this.state.yourLongLat !== '' && 
-          this.state.herLongLat !== '' && 
+        {this.state.yourLongLat.length !== 0 && 
+          this.state.herLongLat.length !== 0 && 
           this.state.myPhoto !== '' && 
           this.state.herPhoto !== '' 
           ?
@@ -270,7 +288,7 @@ const styles = StyleSheet.create({
   imagePickerButton: {
     width: width * 0.24,
     height: (height * 0.24) / 2,
-    borderRadius: (width * 0.24) / 2,
+    borderRadius: (width * 0.24),
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
@@ -286,7 +304,7 @@ const styles = StyleSheet.create({
   photoStyle: {
     width: width * 0.24,
     height: (height * 0.24) / 2,
-    borderRadius: (width * 0.24) / 2,
+    borderRadius: (width * 0.24),
   },
 
   fillFieldsStyle:{

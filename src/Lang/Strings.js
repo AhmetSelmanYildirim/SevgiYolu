@@ -19,7 +19,11 @@ export const strings = new LocalizedStrings({
     bottomText : 'All right reserved of Road Map to Happiness App',
     shareTitle: 'The road map to happiness',
     shareMessage: 'Download the application and create your love\'s road map.',
-    errorMessage: 'Please fill every field.'
+    errorMessage: 'Please fill every field.',
+    quitMessage1: 'Hold on!',
+    quitMessage2: 'Are you sure you want to go back?',
+    quitMessageIgnore: 'No',
+    quitMessageVerify: 'Yes'
  },
 
  tr:{
@@ -39,7 +43,11 @@ export const strings = new LocalizedStrings({
     bottomText : 'Sevgi yolu uygulamasının tüm hakları saklıdır.',
     shareTitle: 'Sevdiğine giden yol haritası',
     shareMessage: 'Uygulamayı indir sen de sevdiğine giden yol haritanı oluştur.',
-    errorMessage: 'Lütfen tüm alanları doldurduğunuzdan emin olunuz.'
+    errorMessage: 'Lütfen tüm alanları doldurduğunuzdan emin olunuz.',
+    quitMessage1: 'Bir dakika!',
+    quitMessage2: 'Uygulamadan çıkmak istediğinize emin misiniz?',
+    quitMessageIgnore: 'Hayır',
+    quitMessageVerify: 'Evet'
  },
 });
 
