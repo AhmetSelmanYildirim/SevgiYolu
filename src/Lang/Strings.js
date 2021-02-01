@@ -23,7 +23,8 @@ export const strings = new LocalizedStrings({
     quitMessage1: 'Hold on!',
     quitMessage2: 'Are you sure you want to go back?',
     quitMessageIgnore: 'No',
-    quitMessageVerify: 'Yes'
+    quitMessageVerify: 'Yes',
+    exit: 'Exit',
  },
 
  tr:{
@@ -47,7 +48,8 @@ export const strings = new LocalizedStrings({
     quitMessage1: 'Bir dakika!',
     quitMessage2: 'Uygulamadan çıkmak istediğinize emin misiniz?',
     quitMessageIgnore: 'Hayır',
-    quitMessageVerify: 'Evet'
+    quitMessageVerify: 'Evet',
+    exit: 'Çıkış',
  },
 });
 

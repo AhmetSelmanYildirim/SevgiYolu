@@ -48,6 +48,7 @@ export default class Form extends Component {
 
 
 
+
   renderSection(text, onPress, img) {                                                                           
     return (
 
@@ -246,6 +247,16 @@ export default class Form extends Component {
         } 
 
         </View>   
+
+        <View style={{marginBottom:"-25%", marginTop:"25%"}}>
+        <Button 
+        backgroundColor="red"
+        text={strings.exit}
+        width={40} height={25}
+        onPress={()=>this.backAction()}
+        >
+        </Button>
+        </View>
 
       </ImageBackground>
     );
