@@ -25,6 +25,20 @@ export const strings = new LocalizedStrings({
     quitMessageIgnore: 'No',
     quitMessageVerify: 'Yes',
     exit: 'Exit',
+    shareScreen: 'Touch for share your map',
+    statistics : 'Statistics',
+    statisticsRoseLength1: 'The average length of a rose leaf is 5 cm.',
+    statisticsRoseLength2: 'And you are',
+    statisticsRoseLength3: 'rose leaf away from your love.',
+    duration0: 'Even though there is such a distance between you, distances do not prevent you from reaching.',
+    duration1: 'If you set out now, you can reach your love in',
+    duration2: 'minutes.',
+    angle0: 'Even if you can\'t meet for now,',
+    angleRL1: 'if you look',
+    angleR: 'degrees east, you will be looking towards your love.',
+    angleL: 'degrees west, you will be looking towards your love.',
+    
+
  },
 
  tr:{
@@ -50,6 +64,19 @@ export const strings = new LocalizedStrings({
     quitMessageIgnore: 'Hayır',
     quitMessageVerify: 'Evet',
     exit: 'Çıkış',
+    shareScreen: 'Haritanızı paylaşmak için dokunun',
+    statistics: 'İstatistikler',
+    statisticsRoseLength1: 'Bir gül yaprağının uzunluğu ortalama 5 cm\'dir.',
+    statisticsRoseLength2: 'Ve sen sevdiğinden',
+    statisticsRoseLength3: 'gül yaprağı uzaktasın.',
+    duration0: 'Aranızda bu kadar mesafe olmasına rağmen mesafeler kavuşmanıza engel değildir. ',
+    duration1: 'Şimdi arabayla yola çıkarsan',
+    duration2: 'dk sonra ona kavuşabilirsin.',
+    angle0: 'Şimdilik kavuşamıyor olsanız bile,',
+    angleRL1: 'eğer',
+    angleR: 'derece doğu istikametine yönelirsen ona doğru bakıyor olursun.',
+    angleL: 'derece batı istikametine yönelirsen ona doğru bakıyor olursun.',
+
  },
 });
 

@@ -5,6 +5,7 @@ import { strings } from '../Lang/Strings';
 import RNGooglePlaces from 'react-native-google-places';
 import ImagePicker from 'react-native-image-picker';
 import { Actions } from 'react-native-router-flux';
+import ExitButton from '../common/ExitButton';
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,31 +22,13 @@ export default class Form extends Component {
     herPhoto: '',
   } 
 
-  backAction = () => {
-    Alert.alert(strings.quitMessage1, strings.quitMessage2, [
-      {
-        text: strings.quitMessageIgnore,
-        onPress: () => null,
-        style: "cancel"
-      },
-      { text: strings.quitMessageVerify, onPress: () => BackHandler.exitApp() }
-    ]);
-    return true;
-  };
 
   componentDidMount() {
     this.setState({
       yourLocation: strings.location,
       herLocation: strings.herLocation,
     });
-
-    this.backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      this.backAction
-    );
-
   }
-
 
 
 
@@ -248,15 +231,7 @@ export default class Form extends Component {
 
         </View>   
 
-        <View style={{marginBottom:"-25%", marginTop:"25%"}}>
-        <Button 
-        backgroundColor="red"
-        text={strings.exit}
-        width={40} height={25}
-        onPress={()=>this.backAction()}
-        >
-        </Button>
-        </View>
+        <ExitButton/>
 
       </ImageBackground>
     );
@@ -300,8 +275,8 @@ const styles = StyleSheet.create({
 
   imagePickerButton: {
     width: width * 0.24,
-    height: (height * 0.24) / 2,
-    borderRadius: (width * 0.24),
+    height: width * 0.24,
+    borderRadius: (width * 0.24) / 2 ,
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
@@ -316,8 +291,8 @@ const styles = StyleSheet.create({
 
   photoStyle: {
     width: width * 0.24,
-    height: (height * 0.24) / 2,
-    borderRadius: (width * 0.24),
+    height: width * 0.24,
+    borderRadius: (width * 0.24) / 2,
   },
 
   fillFieldsStyle:{

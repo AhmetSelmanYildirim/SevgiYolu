@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, Linking } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, Linking, TouchableOpacity } from 'react-native';
 import Button from '../common/Button';
 import { strings } from '../Lang/Strings';
 import Share from 'react-native-share';
+import Statistics from './Statistics';
+import ExitButton from '../common/ExitButton';
 
 //https://play.google.com/store/apps/details?id=com.mutlulugagidenyol
 const { width, height } = Dimensions.get('window');
 
 export default class FinalScreen extends Component {
 
+  state = {
+    inStatistics: true
+  }
 
   render() {
+
 
     const image = 'data:image/png;base64,' + this.props.data.uri;
 
@@ -21,40 +27,63 @@ export default class FinalScreen extends Component {
 
     const shareOptionsAppShare = {
       title: strings.shareTitle,
-      message: strings.shareMassage, 
-      url:'https://drive.google.com/drive/u/0/folders/1EWZ8aA33BJt-xQ-6Cq2gYRiOOgUs9wSc',
+      message: strings.shareMassage,
+      url: 'https://drive.google.com/drive/u/0/folders/1EWZ8aA33BJt-xQ-6Cq2gYRiOOgUs9wSc',
     };
 
+    console.log(this.props.data)
 
-    return (
-      <View style={styles.container}>
+    if (this.state.inStatistics) {
+      return (
+        <View style={styles.statisticsContainer} >
 
-        <Image
-          style={{ marginTop: 50 }}
-          source={require('../img/logo.png')}
+        <Statistics
+        myPhoto = {this.props.data.myPhoto}
+        herPhoto = {this.props.data.herPhoto}
+        distance = {this.props.data.distance}
+        duration = {this.props.data.duration}
+        yourLongLat = {this.props.data.yourLongLat}
+        herLongLat = {this.props.data.herLongLat}
+
+        onPress={ () => this.setState({ inStatistics : false })  }
+
         />
 
-        <Image
-          source={{ uri: this.props.data.uri }}
-          style={styles.imageStyle}
-        />
+        </View>
+      )
+    }
 
-        <View style={styles.subContainer}>
+    else {
+      return (
 
-          <Button
-            text={strings.shareImage}
-            onPress={() => Share.open(shareOptionsImage)}
-            backgroundColor={'orange'}
+        <View style={styles.container}>
 
+          <Image
+            style={{ marginTop: 50 }}
+            source={require('../img/logo.png')}
           />
 
-          <Button
-            text={strings.shareApp}
-            onPress={() => Share.open(shareOptionsAppShare)}
-            backgroundColor={'orange'}
+          <Image
+            source={{ uri: this.props.data.uri }}
+            style={styles.imageStyle}
           />
 
-          {/* <Text
+          <View style={styles.subContainer}>
+
+            <Button
+              text={strings.shareImage}
+              onPress={() => Share.open(shareOptionsImage)}
+              backgroundColor={'orange'}
+
+            />
+
+            <Button
+              text={strings.shareApp}
+              onPress={() => Share.open(shareOptionsAppShare)}
+              backgroundColor={'orange'}
+            />
+
+            {/* <Text
           onPress={ () => Linking.openURL('#')} 
           style={{marginTop:20}}
           >
@@ -62,19 +91,26 @@ export default class FinalScreen extends Component {
 
           </Text> */}
 
-        </View>
+          </View>
 
-        <View style={{justifyContent:'flex-end', height: height*0.20}}>
-          <Text
-            style={{marginTop:20, color:'white', textAlign:'center', fontSize:10, }}
+          <ExitButton
+            marginTop={"8%"}
+            marginBottom={"1%"}
+          />
+
+          <View style={{ justifyContent: 'flex-end', height: height * 0.15 }}>
+            <Text
+              style={{ color: 'white', textAlign: 'center', fontSize: 10, }}
             >
-            {strings.bottomText}
+              {strings.bottomText}
 
-          </Text>
+            </Text>
+          </View>
+
         </View>
+      );
+    }
 
-      </View>
-    );
   }
 }
 
@@ -91,12 +127,12 @@ const styles = StyleSheet.create({
     marginTop: 30,
     borderWidth: 2,
     borderColor: 'orange',
-    zIndex:2,
-    
+    zIndex: 2,
+
   },
   subContainer: {
     marginTop: -30,
-    paddingBottom:30,
+    paddingBottom: 30,
     backgroundColor: 'white',
     width: width - 40,
     borderRadius: 10,
@@ -104,4 +140,12 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     alignItems: 'center',
   },
+
+  statisticsContainer:{
+    flex: 1,
+    backgroundColor: '#0aa5a7',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
 });

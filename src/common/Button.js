@@ -10,8 +10,8 @@ export default class Button extends Component {
         <TouchableOpacity 
         style={[styles.button, 
           {backgroundColor: this.props.backgroundColor ? this.props.backgroundColor :'#5300FF',},
-          {width: this.props.width ? this.props.width :width*0.71,},
-          {height: this.props.height ? this.props.height :height*0.07,}
+          {width: this.props.width ? this.props.width :width*0.60,},
+          {height: this.props.height ? this.props.height :height*0.06,}
         ]}
         onPress={() => this.props.onPress()}
         >

@@ -4,6 +4,7 @@ import { Router, Stack, Scene, } from 'react-native-router-flux';
 import Map from './components/Map';
 import FinalScreen from './components/FinalScreen';
 import Form from './components/Form';
+import Statistics from './components/Statistics';
 const { width } = Dimensions.get('screen');
 
 export default class Root extends Component {
@@ -20,7 +21,11 @@ export default class Root extends Component {
 
                     <Scene key="Map" component={Map} hideNavBar />
 
+                    <Scene key="Statistics" component={Statistics} hideNavBar />
+
                     <Scene key="FinalScreen" component={FinalScreen} hideNavBar />
+
+
 
 
                 </Stack>
